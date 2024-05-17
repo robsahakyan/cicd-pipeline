@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NODEJS_HOME = tool name: 'NodeJS', type: 'hudson.plugins.nodejs.tools.NodeJSInstallation'
+        NODEJS_HOME = tool name: 'NodeJS'
         DOCKER_MAIN_IMAGE = 'nodemain:v1.0'
         DOCKER_DEV_IMAGE = 'nodedev:v1.0'
     }

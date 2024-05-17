@@ -53,7 +53,7 @@ pipeline {
 
     post {
         always {
-            // You can add post-build actions here if needed
+            echo 'Pipeline execution finished.'
         }
     }
 }

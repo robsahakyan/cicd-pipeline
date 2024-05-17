@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NODEJS_HOME = tool name: 'NodeJS'
+        NODEJS_HOME = tool name: 'nodejs'
         DOCKER_MAIN_IMAGE = 'nodemain:v1.0'
         DOCKER_DEV_IMAGE = 'nodedev:v1.0'
     }

@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NODEJS_HOME = tool 'NodeJS'
+        NODEJS_HOME = tool name: 'nodejs'
         DOCKER_MAIN_IMAGE = 'nodemain:v1.0'
         DOCKER_DEV_IMAGE = 'nodedev:v1.0'
     }
@@ -42,7 +42,7 @@ pipeline {
                     if (env.BRANCH_NAME == 'main') {
                         sh "docker run -d --expose 3000 -p 3000:3000 ${DOCKER_MAIN_IMAGE}"
                     } else if (env.BRANCH_NAME == 'dev') {
-                        sh "docker run -d --expose 3001 -p 3001:3000 ${DOCKER_DEV_IMAGE}"
+                        sh "docker run -d --expose 3000 -p 3001:3000 ${DOCKER_DEV_IMAGE}"
                     } else {
                         error "Branch not supported"
                     }
@@ -53,6 +53,7 @@ pipeline {
 
     post {
         always {
+            echo 'Pipeline execution finished.'
         }
     }
 }
